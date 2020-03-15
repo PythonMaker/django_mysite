@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>投票应用程序</title>
+    </head>
+
+    <body>
+        {% if question_all %}
+        <ul>
+            {% for question in question_all %}
+            <li><a href=" {% url 'polls:detail' question.id %} ">
+                    {{ question.question_text }} </a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>没有找到需要投票的问题！</p>
+        {% endif %}
+    </body>
+
+</html>
